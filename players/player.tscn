@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://dgjcmjsay8icn"]
 
 [ext_resource type="Script" path="res://players/player.gd" id="1_ide3t"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://dgjcmjsay8icn"]
+
+[ext_resource type="Script" path="res://players/player.gd" id="1_70vlu"]
+>>>>>>> 26156847d736c9462ce7c8c0b3cb5ae7316aed50
 [ext_resource type="Texture2D" uid="uid://dr8xpq2l8qjg3" path="res://sprites/player.PNG" id="1_svgj0"]
 [ext_resource type="Texture2D" uid="uid://cgluofj8jmnhh" path="res://sprites/aimer.PNG" id="2_j5ohb"]
 
@@ -22,8 +28,12 @@ func _ready(): print(get_parent().name)
 radius = 228.079
 
 [node name="player" type="CharacterBody2D"]
+<<<<<<< HEAD
 scale = Vector2(0.48, 0.48)
 script = ExtResource("1_ide3t")
+=======
+script = ExtResource("1_70vlu")
+>>>>>>> 26156847d736c9462ce7c8c0b3cb5ae7316aed50
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_ynqvb")
