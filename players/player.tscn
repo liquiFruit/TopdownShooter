@@ -1,16 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgjcmjsay8icn"]
+[gd_scene load_steps=7 format=3 uid="uid://dgjcmjsay8icn"]
 
+[ext_resource type="Script" path="res://players/player.gd" id="1_ide3t"]
 [ext_resource type="Texture2D" uid="uid://dr8xpq2l8qjg3" path="res://sprites/player.PNG" id="1_svgj0"]
 [ext_resource type="Texture2D" uid="uid://cgluofj8jmnhh" path="res://sprites/aimer.PNG" id="2_j5ohb"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ynqvb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath("aimer:modulate")
+properties/1/spawn = true
+properties/1/sync = true
+
+[sub_resource type="GDScript" id="GDScript_xmye3"]
+script/source = "extends MultiplayerSynchronizer
+
+func _ready(): print(get_parent().name)
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucqwo"]
 radius = 228.079
 
 [node name="player" type="CharacterBody2D"]
+scale = Vector2(0.48, 0.48)
+script = ExtResource("1_ide3t")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ynqvb")
+script = SubResource("GDScript_xmye3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ucqwo")
 
 [node name="body" type="Sprite2D" parent="."]
@@ -18,7 +38,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_svgj0")
 
 [node name="aimer" type="Sprite2D" parent="."]
-modulate = Color(0.280685, 0.447327, 1, 1)
+modulate = Color(0, 0.521569, 0.870588, 1)
 position = Vector2(0, -447)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
