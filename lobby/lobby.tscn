@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://bckda3mhqx7uw"]
+
+[ext_resource type="Script" path="res://lobby/lobby.gd" id="1_5pxtw"]
+[ext_resource type="Texture2D" uid="uid://bcqj3agkhy457" path="res://icon.svg" id="2_sj64c"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5pxtw")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -167.0
+offset_right = 211.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="CharacterCustomisation" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CharacterCustomisation"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CharacterCustomisation/VBoxContainer"]
+layout_mode = 2
+text = "Player Color"
+
+[node name="PlayerColorSlider" type="HSlider" parent="CenterContainer/VBoxContainer/CharacterCustomisation/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="SpritePreview" type="TextureRect" parent="CenterContainer/VBoxContainer/CharacterCustomisation"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_sj64c")
+
+[node name="ConnectionInfo" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ServerAddress" type="LineEdit" parent="CenterContainer/VBoxContainer/ConnectionInfo"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "localhost"
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/ConnectionInfo"]
+layout_mode = 2
+text = "JOIN"
+
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/CharacterCustomisation/VBoxContainer/PlayerColorSlider" to="." method="_on_player_color_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ConnectionInfo/PlayButton" to="." method="_load_game"]
