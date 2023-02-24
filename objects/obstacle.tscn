@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dygwo5teyuplw"]
+
+[ext_resource type="Texture2D" uid="uid://cmoes7dgqrc2c" path="res://sprites/obstacle.PNG" id="1_vclbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkk5"]
+size = Vector2(444, 442)
+
+[node name="obstacle" type="CharacterBody2D"]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dlkk5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vclbb")

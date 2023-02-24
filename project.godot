@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="TopdownShooter"
+run/main_scene="res://scenes/test.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0784314, 0.105882, 0.141176, 1)
