@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyxm0dq5rd1p"]
+
+[ext_resource type="PackedScene" uid="uid://dgjcmjsay8icn" path="res://players/player.tscn" id="1_p0q2j"]
+[ext_resource type="PackedScene" uid="uid://besl7erwqjwn8" path="res://objects/projectile.tscn" id="2_wbcgv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.23, 0.23)
+
+[node name="player" parent="." instance=ExtResource("1_p0q2j")]
+position = Vector2(-2, -4)
+
+[node name="projectile" parent="." instance=ExtResource("2_wbcgv")]
+position = Vector2(-1, -934)
